@@ -1,6 +1,5 @@
 package xyz.tanishq.madhousecolorsanimals;
 
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MediaPlayer orangeCatS, orangeDogS, orangeLionS, orangeCamelS, orangeRabbitS, orangeGiraffeS;
 
     private AdView adView;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
-        context = getApplicationContext();
 
         //Referencing all the views from the layout file
         cat = (LinearLayout) findViewById(R.id.cat);
@@ -79,6 +75,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         blueS = MediaPlayer.create(this, R.raw.blue);
         pinkS = MediaPlayer.create(this, R.raw.pink);
         orangeS = MediaPlayer.create(this, R.raw.orange);
+
+        //Animals
+        catS = MediaPlayer.create(this, R.raw.cat);
+        dogS = MediaPlayer.create(this, R.raw.dog);
+        lionS = MediaPlayer.create(this, R.raw.lion);
+        camelS = MediaPlayer.create(this, R.raw.camel);
+        rabbitS = MediaPlayer.create(this, R.raw.rabbit);
+        giraffeS = MediaPlayer.create(this, R.raw.giraffe);
 
         //Combination of Cat
         redCatS = MediaPlayer.create(this, R.raw.redcat);
@@ -128,6 +132,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pinkGiraffeS = MediaPlayer.create(this, R.raw.pinkgiraffe);
         orangeGiraffeS = MediaPlayer.create(this, R.raw.orangegiraffe);
 
+        //Implementing the onClickListener
+        cat.setOnClickListener(this);
+        dog.setOnClickListener(this);
+        camel.setOnClickListener(this);
+        lion.setOnClickListener(this);
+        rabbit.setOnClickListener(this);
+        giraffe.setOnClickListener(this);
+        red.setOnClickListener(this);
+        yellow.setOnClickListener(this);
+        green.setOnClickListener(this);
+        blue.setOnClickListener(this);
+        orange.setOnClickListener(this);
+        pink.setOnClickListener(this);
+
         // Load an ad into the AdMob banner view.
         AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
@@ -144,151 +162,152 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (id) {
 
                 case R.id.red:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.red));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
                     isColored = true;
                     redS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("RED");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = red;
                     break;
 
                 case R.id.yellow:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.yellow));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.yellow));
                     isColored = true;
                     yellowS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("YELLOW");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = yellow;
                     break;
 
                 case R.id.orange:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.orange));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.orange));
                     isColored = true;
                     orangeS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("ORANGE");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = orange;
                     break;
 
                 case R.id.blue:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.black));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
                     isColored = true;
                     blueS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("BLUE");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = blue;
                     break;
 
                 case R.id.pink:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.pink));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.pink));
                     isColored = true;
                     pinkS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("PINK");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = pink;
                     break;
 
                 case R.id.green:
-                    output.setBackgroundColor(ContextCompat.getColor(context, R.color.green));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
                     isColored = true;
                     greenS.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("GREEN");
                     outputText.setTextSize(50);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.white));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.white));
                     colorSelected = green;
                     break;
 
                 case R.id.cat:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.cat);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, 0));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
                     isAnimalSelected = true;
                     catS.start();
                     animalSelected = cat;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("CAT");
                     outputText.setTextSize(30);
                     break;
 
                 case R.id.dog:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.dog);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
                     isAnimalSelected = true;
                     dogS.start();
                     animalSelected = dog;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("DOG");
                     outputText.setTextSize(30);
                     break;
 
                 case R.id.lion:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.lion);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
                     isAnimalSelected = true;
                     lionS.start();
                     animalSelected = lion;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("LION");
                     outputText.setTextSize(30);
                     break;
 
                 case R.id.camel:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.camel);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
                     isAnimalSelected = true;
                     camelS.start();
                     animalSelected = camel;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("CAMEL");
                     outputText.setTextSize(30);
                     break;
 
                 case R.id.rabbit:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.rabbit);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
                     isAnimalSelected = true;
                     rabbitS.start();
                     animalSelected = rabbit;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("RABBIT");
                     outputText.setTextSize(30);
                     break;
 
                 case R.id.giraffe:
-                    output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
-                    outputImage.setImageResource(R.drawable.giraffe);
+                    output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                    outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
                     isAnimalSelected = true;
                     giraffeS.start();
                     animalSelected = giraffe;
 
                     outputImage.setVisibility(View.VISIBLE);
-                    outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                    outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                     outputText.setText("GIRAFFE");
                     outputText.setTextSize(30);
                     break;
@@ -305,9 +324,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             redCatS.start();
                             colorSelected = red;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED CAT");
                             outputText.setTextSize(30);
                             break;
@@ -318,9 +337,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             yellowCatS.start();
                             colorSelected = yellow;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.yellow));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW CAT");
                             outputText.setTextSize(30);
                             break;
@@ -331,9 +350,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             orangeCatS.start();
                             colorSelected = orange;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.orange));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE CAT");
                             outputText.setTextSize(30);
                             break;
@@ -344,9 +363,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             blueCatS.start();
                             colorSelected = blue;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
                             outputText.setText("BLUE CAT");
                             outputText.setTextSize(30);
                             break;
@@ -357,9 +376,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             pinkCatS.start();
                             colorSelected = pink;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.pink));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK CAT");
                             outputText.setTextSize(30);
                             break;
@@ -370,9 +389,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             greenCatS.start();
                             colorSelected = green;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, R.color.green));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN CAT");
                             outputText.setTextSize(30);
                             break;
@@ -383,9 +402,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = cat;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("CAT");
                             outputText.setTextSize(30);
                             break;
@@ -396,9 +415,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = dog;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("DOG");
                             outputText.setTextSize(30);
                             break;
@@ -409,9 +428,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = lion;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("LION");
                             outputText.setTextSize(30);
                             break;
@@ -422,9 +441,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = camel;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -435,9 +454,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -448,13 +467,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
-                            output.setBackgroundColor(ContextCompat.getColor(context, android.R.color.white));
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(context, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
                             outputText.setText("GIRAFFE");
                             outputText.setTextSize(30);
                     }
                     break;
+
+                case R.id.dog:
+                    switch (id) {
+
+                        case R.id.red:
+                            outputImage.setImageResource(R.drawable.reddog);
+                            isColored = true;
+                            redDogS.start();
+                            colorSelected = red;
+
+                            output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+                            outputImage.setVisibility(View.GONE);
+                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setText("RED DOG");
+                            outputText.setTextSize(30);
+                            break;
+                    }
             }
         }
     }
