@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
 
                 case R.id.blue:
-                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
                     isColored = true;
                     blueS.start();
 
@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE CAT");
                             outputText.setTextSize(30);
                             break;

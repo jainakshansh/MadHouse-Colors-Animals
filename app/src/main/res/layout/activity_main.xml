@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
             android:orientation="vertical">
 
             <LinearLayout
@@ -26,75 +25,126 @@
                 android:layout_weight="1"
                 android:baselineAligned="false">
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
+
                 <LinearLayout
                     android:id="@+id/cat"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/cat"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/dog"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/dog"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/lion"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/lion"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:background="@android:color/white"
                 android:baselineAligned="false">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/camel"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/camel"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/rabbit"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/rabbit"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:id="@+id/giraffe"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/giraffe"
                     android:orientation="horizontal"
-                    android:padding="8dp" />
+                    android:padding="5dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black" />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
 
         </LinearLayout>
 
@@ -103,11 +153,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/output"
