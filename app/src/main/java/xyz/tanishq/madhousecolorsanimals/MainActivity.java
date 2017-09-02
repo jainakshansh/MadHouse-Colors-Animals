@@ -14,6 +14,9 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout cat, dog, lion, camel, rabbit, giraffe;
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Combination of Dog
         redDogS = MediaPlayer.create(this, R.raw.reddog);
         yellowDogS = MediaPlayer.create(this, R.raw.yellowdog);
-        greenDogS = MediaPlayer.create(this, R.raw.yellowdog);
+        greenDogS = MediaPlayer.create(this, R.raw.greendog);
         blueDogS = MediaPlayer.create(this, R.raw.bluedog);
         pinkDogS = MediaPlayer.create(this, R.raw.pinkdog);
         orangeDogS = MediaPlayer.create(this, R.raw.orangedog);
@@ -151,6 +154,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                catS.stop();
+                dogS.stop();
+                lionS.stop();
+                camelS.stop();
+                rabbitS.stop();
+                giraffeS.stop();
+            }
+        }, 10000);
     }
 
     @Override
