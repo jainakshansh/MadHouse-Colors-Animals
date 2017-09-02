@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
 
                 case R.id.blue:
-                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.black));
+                    output.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
                     isColored = true;
                     blueS.start();
 
@@ -235,7 +235,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 case R.id.cat:
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                    outputImage.setBackground(ContextCompat.getDrawable(this, 0));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
                     isAnimalSelected = true;
                     catS.start();
@@ -317,9 +316,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (animalSelected.getId()) {
 
                 case R.id.cat:
+
                     switch (id) {
+
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.redcat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redcat));
                             isColored = true;
                             redCatS.start();
                             colorSelected = red;
@@ -332,7 +333,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowcat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowcat));
                             isColored = true;
                             yellowCatS.start();
                             colorSelected = yellow;
@@ -345,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangecat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangecat));
                             isColored = true;
                             orangeCatS.start();
                             colorSelected = orange;
@@ -358,7 +359,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluecat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluecat));
                             isColored = true;
                             blueCatS.start();
                             colorSelected = blue;
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinkcat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkcat));
                             isColored = true;
                             pinkCatS.start();
                             colorSelected = pink;
@@ -384,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greencat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greencat));
                             isColored = true;
                             greenCatS.start();
                             colorSelected = green;
@@ -397,7 +398,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.cat:
-                            outputImage.setImageResource(R.drawable.cat);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
                             catS.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
@@ -410,7 +411,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.dog:
-                            outputImage.setImageResource(R.drawable.dog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
                             dogS.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
@@ -423,7 +424,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.lion:
-                            outputImage.setImageResource(R.drawable.lion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
                             lionS.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
@@ -436,7 +437,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.camel:
-                            outputImage.setImageResource(R.drawable.camel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
                             camelS.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
@@ -449,7 +450,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.rabbit:
-                            outputImage.setImageResource(R.drawable.rabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
                             rabbitS.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
@@ -462,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.giraffe:
-                            outputImage.setImageResource(R.drawable.giraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
                             giraffeS.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
@@ -480,79 +481,79 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (id) {
 
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.reddog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.reddog));
                             isColored = true;
                             redDogS.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED DOG");
                             outputText.setTextSize(30);
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowdog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowdog));
                             isColored = true;
                             yellowDogS.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("YELLOW DOG");
                             outputText.setTextSize(30);
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangedog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangedog));
                             isColored = true;
                             orangeDogS.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("ORANGE DOG");
                             outputText.setTextSize(30);
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluedog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluedog));
                             isColored = true;
                             blueDogS.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("BLUE DOG");
                             outputText.setTextSize(30);
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinkdog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkdog));
                             isColored = true;
                             pinkDogS.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("PINK DOG");
                             outputText.setTextSize(30);
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greendog);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greendog));
                             isColored = true;
                             greenDogS.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-                            outputImage.setVisibility(View.GONE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputImage.setVisibility(View.VISIBLE);
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("GREEN DOG");
                             outputText.setTextSize(30);
                             break;
@@ -642,7 +643,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (id) {
 
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.redlion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redlion));
                             isAnimalSelected = true;
                             redLionS.start();
                             colorSelected = red;
@@ -655,7 +656,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowlion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowlion));
                             isAnimalSelected = true;
                             yellowLionS.start();
                             colorSelected = yellow;
@@ -668,7 +669,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangelion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangelion));
                             isAnimalSelected = true;
                             orangeLionS.start();
                             colorSelected = orange;
@@ -681,7 +682,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluelion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluelion));
                             isAnimalSelected = true;
                             blueLionS.start();
                             colorSelected = blue;
@@ -694,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinklion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinklion));
                             isAnimalSelected = true;
                             pinkLionS.start();
                             colorSelected = pink;
@@ -707,7 +708,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greenlion);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greenlion));
                             isAnimalSelected = true;
                             greenLionS.start();
                             colorSelected = green;
@@ -804,7 +805,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (id) {
 
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.redcamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redcamel));
                             isAnimalSelected = true;
                             redCamelS.start();
                             colorSelected = red;
@@ -817,7 +818,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowcamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowcamel));
                             isAnimalSelected = true;
                             yellowCamelS.start();
                             colorSelected = yellow;
@@ -830,7 +831,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangecamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangecamel));
                             isAnimalSelected = true;
                             orangeCamelS.start();
                             colorSelected = orange;
@@ -843,7 +844,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluecamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluecamel));
                             isAnimalSelected = true;
                             blueCamelS.start();
                             colorSelected = blue;
@@ -856,7 +857,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinkcamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkcamel));
                             isAnimalSelected = true;
                             pinkCamelS.start();
                             colorSelected = pink;
@@ -869,7 +870,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greencamel);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greencamel));
                             isAnimalSelected = true;
                             greenCamelS.start();
                             colorSelected = green;
@@ -966,7 +967,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (id) {
 
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.redrabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redrabbit));
                             isAnimalSelected = true;
                             redRabbitS.start();
                             colorSelected = red;
@@ -979,7 +980,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowrabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowrabbit));
                             isAnimalSelected = true;
                             yellowRabbitS.start();
                             colorSelected = yellow;
@@ -992,7 +993,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangerabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangerabbit));
                             isAnimalSelected = true;
                             orangeRabbitS.start();
                             colorSelected = orange;
@@ -1005,7 +1006,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluerabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluerabbit));
                             isAnimalSelected = true;
                             blueRabbitS.start();
                             colorSelected = blue;
@@ -1018,7 +1019,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinkrabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkrabbit));
                             isAnimalSelected = true;
                             pinkRabbitS.start();
                             colorSelected = pink;
@@ -1031,7 +1032,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greenrabbit);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greenrabbit));
                             isAnimalSelected = true;
                             greenRabbitS.start();
                             colorSelected = green;
@@ -1128,7 +1129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     switch (id) {
 
                         case R.id.red:
-                            outputImage.setImageResource(R.drawable.redgiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redgiraffe));
                             isAnimalSelected = true;
                             redGiraffeS.start();
                             colorSelected = red;
@@ -1141,7 +1142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.yellow:
-                            outputImage.setImageResource(R.drawable.yellowgiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowgiraffe));
                             isAnimalSelected = true;
                             yellowGiraffeS.start();
                             colorSelected = yellow;
@@ -1154,7 +1155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.orange:
-                            outputImage.setImageResource(R.drawable.orangegiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangegiraffe));
                             isAnimalSelected = true;
                             orangeGiraffeS.start();
                             colorSelected = orange;
@@ -1167,7 +1168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.blue:
-                            outputImage.setImageResource(R.drawable.bluegiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluegiraffe));
                             isAnimalSelected = true;
                             blueGiraffeS.start();
                             colorSelected = blue;
@@ -1180,7 +1181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.pink:
-                            outputImage.setImageResource(R.drawable.pinkgiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkgiraffe));
                             isAnimalSelected = true;
                             pinkGiraffeS.start();
                             colorSelected = pink;
@@ -1193,7 +1194,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             break;
 
                         case R.id.green:
-                            outputImage.setImageResource(R.drawable.greengiraffe);
+                            outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greengiraffe));
                             isAnimalSelected = true;
                             greenGiraffeS.start();
                             colorSelected = green;
