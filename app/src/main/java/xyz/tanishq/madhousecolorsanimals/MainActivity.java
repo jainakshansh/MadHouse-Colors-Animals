@@ -14,9 +14,6 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout cat, dog, lion, camel, rabbit, giraffe;
@@ -30,9 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout colorSelected;
     private LinearLayout animalSelected;
 
-    private MediaPlayer redS, yellowS, orangeS, blueS, pinkS, greenS;
-    private MediaPlayer catS, dogS, lionS, camelS, rabbitS, giraffeS;
-
+    private MediaPlayer mediaPlayer;
     private MediaPlayer redCatS, redDogS, redLionS, redCamelS, redRabbitS, redGiraffeS;
     private MediaPlayer yellowCatS, yellowDogS, yellowLionS, yellowCamelS, yellowRabbitS, yellowGiraffeS;
     private MediaPlayer greenCatS, greenDogS, greenLionS, greenCamelS, greenRabbitS, greenGiraffeS;
@@ -70,22 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         output = (LinearLayout) findViewById(R.id.output_main);
         outputImage = (ImageView) findViewById(R.id.output);
         outputText = (TextView) findViewById(R.id.outputtext);
-
-        //Colors
-        redS = MediaPlayer.create(this, R.raw.red);
-        yellowS = MediaPlayer.create(this, R.raw.yellow);
-        greenS = MediaPlayer.create(this, R.raw.green);
-        blueS = MediaPlayer.create(this, R.raw.blue);
-        pinkS = MediaPlayer.create(this, R.raw.pink);
-        orangeS = MediaPlayer.create(this, R.raw.orange);
-
-        //Animals
-        catS = MediaPlayer.create(this, R.raw.cat);
-        dogS = MediaPlayer.create(this, R.raw.dog);
-        lionS = MediaPlayer.create(this, R.raw.lion);
-        camelS = MediaPlayer.create(this, R.raw.camel);
-        rabbitS = MediaPlayer.create(this, R.raw.rabbit);
-        giraffeS = MediaPlayer.create(this, R.raw.giraffe);
 
         //Combination of Cat
         redCatS = MediaPlayer.create(this, R.raw.redcat);
@@ -154,23 +133,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                catS.stop();
-                dogS.stop();
-                lionS.stop();
-                camelS.stop();
-                rabbitS.stop();
-                giraffeS.stop();
-            }
-        }, 10000);
     }
 
     @Override
     public void onClick(View view) {
+
+        //Releasing all the unused resources when any item is clicked anytime.
+        if (mediaPlayer != null){
+            mediaPlayer.release();
+        }
+
         int id = view.getId();
 
         if (!isAnimalSelected) {
@@ -180,7 +152,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.red:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
                     isColored = true;
-                    redS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.red);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("RED");
@@ -192,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.yellow:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.yellow));
                     isColored = true;
-                    yellowS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.yellow);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("YELLOW");
@@ -204,7 +178,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.orange:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.orange));
                     isColored = true;
-                    orangeS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.orange);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("ORANGE");
@@ -216,7 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.blue:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.blue));
                     isColored = true;
-                    blueS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.blue);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("BLUE");
@@ -228,7 +204,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.pink:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.pink));
                     isColored = true;
-                    pinkS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.pink);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("PINK");
@@ -240,7 +217,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.green:
                     output.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
                     isColored = true;
-                    greenS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.green);
+                    mediaPlayer.start();
 
                     outputImage.setVisibility(View.GONE);
                     outputText.setText("GREEN");
@@ -253,7 +231,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
                     isAnimalSelected = true;
-                    catS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                    mediaPlayer.start();
                     animalSelected = cat;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -266,7 +245,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
                     isAnimalSelected = true;
-                    dogS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                    mediaPlayer.start();
                     animalSelected = dog;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -279,7 +259,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
                     isAnimalSelected = true;
-                    lionS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                    mediaPlayer.start();
                     animalSelected = lion;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -292,7 +273,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
                     isAnimalSelected = true;
-                    camelS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                    mediaPlayer.start();
                     animalSelected = camel;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -305,7 +287,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
                     isAnimalSelected = true;
-                    rabbitS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                    mediaPlayer.start();
                     animalSelected = rabbit;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -318,7 +301,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                     outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
                     isAnimalSelected = true;
-                    giraffeS.start();
+                    mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                    mediaPlayer.start();
                     animalSelected = giraffe;
 
                     outputImage.setVisibility(View.VISIBLE);
@@ -415,7 +399,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -428,7 +413,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -441,7 +427,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -454,7 +441,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -467,7 +455,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -480,7 +469,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
@@ -576,7 +566,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -589,7 +580,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -602,7 +594,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -615,7 +608,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -628,7 +622,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -641,7 +636,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
@@ -738,7 +734,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -751,7 +748,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -764,7 +762,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -777,7 +776,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -790,7 +790,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -803,7 +804,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
@@ -900,7 +902,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -913,7 +916,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -926,7 +930,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -939,7 +944,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -952,7 +958,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -965,7 +972,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
@@ -1062,7 +1070,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -1075,7 +1084,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -1088,7 +1098,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -1101,7 +1112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -1114,7 +1126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -1127,7 +1140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
@@ -1224,7 +1238,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.cat:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.cat));
-                            catS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = cat;
 
@@ -1237,7 +1252,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.dog:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.dog));
-                            dogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = dog;
 
@@ -1250,7 +1266,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.lion:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.lion));
-                            lionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.lion);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = lion;
 
@@ -1263,7 +1280,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.camel:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.camel));
-                            camelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.camel);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = camel;
 
@@ -1276,7 +1294,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.rabbit:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.rabbit));
-                            rabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.rabbit);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = rabbit;
 
@@ -1289,7 +1308,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         case R.id.giraffe:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.giraffe));
-                            giraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.giraffe);
+                            mediaPlayer.start();
                             isAnimalSelected = true;
                             animalSelected = giraffe;
 
