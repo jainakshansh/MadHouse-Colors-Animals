@@ -223,7 +223,6 @@
                     android:background="@color/orange"
                     android:orientation="horizontal" />
 
-
             </LinearLayout>
 
             <LinearLayout
@@ -272,6 +271,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id" />
 
