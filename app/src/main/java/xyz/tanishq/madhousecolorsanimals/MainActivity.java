@@ -28,12 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout animalSelected;
 
     private MediaPlayer mediaPlayer;
-    private MediaPlayer redCatS, redDogS, redLionS, redCamelS, redRabbitS, redGiraffeS;
-    private MediaPlayer yellowCatS, yellowDogS, yellowLionS, yellowCamelS, yellowRabbitS, yellowGiraffeS;
-    private MediaPlayer greenCatS, greenDogS, greenLionS, greenCamelS, greenRabbitS, greenGiraffeS;
-    private MediaPlayer blueCatS, blueDogS, blueLionS, blueCamelS, blueRabbitS, blueGiraffeS;
-    private MediaPlayer pinkCatS, pinkDogS, pinkLionS, pinkCamelS, pinkRabbitS, pinkGiraffeS;
-    private MediaPlayer orangeCatS, orangeDogS, orangeLionS, orangeCamelS, orangeRabbitS, orangeGiraffeS;
 
     private AdView adView;
 
@@ -66,54 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outputImage = (ImageView) findViewById(R.id.output);
         outputText = (TextView) findViewById(R.id.outputtext);
 
-        //Combination of Cat
-        redCatS = MediaPlayer.create(this, R.raw.redcat);
-        yellowCatS = MediaPlayer.create(this, R.raw.yellowcat);
-        greenCatS = MediaPlayer.create(this, R.raw.greencat);
-        blueCatS = MediaPlayer.create(this, R.raw.bluecat);
-        pinkCatS = MediaPlayer.create(this, R.raw.pinkcat);
-        orangeCatS = MediaPlayer.create(this, R.raw.orangecat);
-
-        //Combination of Dog
-        redDogS = MediaPlayer.create(this, R.raw.reddog);
-        yellowDogS = MediaPlayer.create(this, R.raw.yellowdog);
-        greenDogS = MediaPlayer.create(this, R.raw.greendog);
-        blueDogS = MediaPlayer.create(this, R.raw.bluedog);
-        pinkDogS = MediaPlayer.create(this, R.raw.pinkdog);
-        orangeDogS = MediaPlayer.create(this, R.raw.orangedog);
-
-        //Combination of Lion
-        redLionS = MediaPlayer.create(this, R.raw.redlion);
-        yellowLionS = MediaPlayer.create(this, R.raw.yellowlion);
-        greenLionS = MediaPlayer.create(this, R.raw.greenlion);
-        blueLionS = MediaPlayer.create(this, R.raw.bluelion);
-        pinkLionS = MediaPlayer.create(this, R.raw.pinklion);
-        orangeLionS = MediaPlayer.create(this, R.raw.orangelion);
-
-        //Combination of Camel
-        redCamelS = MediaPlayer.create(this, R.raw.redcamel);
-        yellowCamelS = MediaPlayer.create(this, R.raw.yellowcamel);
-        greenCamelS = MediaPlayer.create(this, R.raw.greencamel);
-        blueCamelS = MediaPlayer.create(this, R.raw.bluecamel);
-        pinkCamelS = MediaPlayer.create(this, R.raw.pinkcamel);
-        orangeCamelS = MediaPlayer.create(this, R.raw.orangecamel);
-
-        //Combination of Rabbit
-        redRabbitS = MediaPlayer.create(this, R.raw.redrabbit);
-        yellowRabbitS = MediaPlayer.create(this, R.raw.yellowrabbit);
-        greenRabbitS = MediaPlayer.create(this, R.raw.greenrabbit);
-        blueRabbitS = MediaPlayer.create(this, R.raw.bluerabbit);
-        pinkRabbitS = MediaPlayer.create(this, R.raw.pinkrabbit);
-        orangeRabbitS = MediaPlayer.create(this, R.raw.orangerabbit);
-
-        //Combination of Giraffe
-        redGiraffeS = MediaPlayer.create(this, R.raw.redgiraffe);
-        yellowGiraffeS = MediaPlayer.create(this, R.raw.yellowgiraffe);
-        greenGiraffeS = MediaPlayer.create(this, R.raw.greengiraffe);
-        blueGiraffeS = MediaPlayer.create(this, R.raw.bluegiraffe);
-        pinkGiraffeS = MediaPlayer.create(this, R.raw.pinkgiraffe);
-        orangeGiraffeS = MediaPlayer.create(this, R.raw.orangegiraffe);
-
         //Implementing the onClickListener
         cat.setOnClickListener(this);
         dog.setOnClickListener(this);
@@ -139,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         //Releasing all the unused resources when any item is clicked anytime.
-        if (mediaPlayer != null){
+        if (mediaPlayer != null) {
             mediaPlayer.release();
         }
 
@@ -322,7 +268,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redcat));
                             isColored = true;
-                            redCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.redcat);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -335,7 +282,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowcat));
                             isColored = true;
-                            yellowCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowcat);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -348,7 +296,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangecat));
                             isColored = true;
-                            orangeCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangecat);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -361,7 +310,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluecat));
                             isColored = true;
-                            blueCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluecat);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -374,7 +324,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkcat));
                             isColored = true;
-                            pinkCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinkcat);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -387,7 +338,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greencat));
                             isColored = true;
-                            greenCatS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greencat);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -489,7 +441,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.reddog));
                             isColored = true;
-                            redDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.reddog);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -502,7 +455,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowdog));
                             isColored = true;
-                            yellowDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowdog);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -515,7 +469,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangedog));
                             isColored = true;
-                            orangeDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangedog);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -528,7 +483,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluedog));
                             isColored = true;
-                            blueDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluedog);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -541,7 +497,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkdog));
                             isColored = true;
-                            pinkDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinkdog);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -554,7 +511,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greendog));
                             isColored = true;
-                            greenDogS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greendog);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -657,7 +615,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redlion));
                             isAnimalSelected = true;
-                            redLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.redlion);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -670,7 +629,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowlion));
                             isAnimalSelected = true;
-                            yellowLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowlion);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -683,7 +643,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangelion));
                             isAnimalSelected = true;
-                            orangeLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangelion);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -696,7 +657,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluelion));
                             isAnimalSelected = true;
-                            blueLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluelion);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -709,7 +671,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinklion));
                             isAnimalSelected = true;
-                            pinkLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinklion);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -722,7 +685,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greenlion));
                             isAnimalSelected = true;
-                            greenLionS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greenlion);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -825,7 +789,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redcamel));
                             isAnimalSelected = true;
-                            redCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.redcamel);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -838,7 +803,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowcamel));
                             isAnimalSelected = true;
-                            yellowCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowcamel);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -851,7 +817,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangecamel));
                             isAnimalSelected = true;
-                            orangeCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangecamel);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -864,7 +831,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluecamel));
                             isAnimalSelected = true;
-                            blueCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluecamel);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -877,7 +845,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkcamel));
                             isAnimalSelected = true;
-                            pinkCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinkcamel);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -890,7 +859,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greencamel));
                             isAnimalSelected = true;
-                            greenCamelS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greencamel);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -993,7 +963,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redrabbit));
                             isAnimalSelected = true;
-                            redRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.redrabbit);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1006,7 +977,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowrabbit));
                             isAnimalSelected = true;
-                            yellowRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowrabbit);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1019,7 +991,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangerabbit));
                             isAnimalSelected = true;
-                            orangeRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangerabbit);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1032,7 +1005,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluerabbit));
                             isAnimalSelected = true;
-                            blueRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluerabbit);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1045,7 +1019,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkrabbit));
                             isAnimalSelected = true;
-                            pinkRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinkrabbit);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1058,7 +1033,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greenrabbit));
                             isAnimalSelected = true;
-                            greenRabbitS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greenrabbit);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1161,7 +1137,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.red:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.redgiraffe));
                             isAnimalSelected = true;
-                            redGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.redgiraffe);
+                            mediaPlayer.start();
                             colorSelected = red;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1174,7 +1151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.yellow:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.yellowgiraffe));
                             isAnimalSelected = true;
-                            yellowGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.yellowgiraffe);
+                            mediaPlayer.start();
                             colorSelected = yellow;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1187,7 +1165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.orange:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.orangegiraffe));
                             isAnimalSelected = true;
-                            orangeGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.orangegiraffe);
+                            mediaPlayer.start();
                             colorSelected = orange;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1200,7 +1179,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.blue:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.bluegiraffe));
                             isAnimalSelected = true;
-                            blueGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.bluegiraffe);
+                            mediaPlayer.start();
                             colorSelected = blue;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1213,7 +1193,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.pink:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.pinkgiraffe));
                             isAnimalSelected = true;
-                            pinkGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.pinkgiraffe);
+                            mediaPlayer.start();
                             colorSelected = pink;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
@@ -1226,7 +1207,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         case R.id.green:
                             outputImage.setBackground(ContextCompat.getDrawable(this, R.drawable.greengiraffe));
                             isAnimalSelected = true;
-                            greenGiraffeS.start();
+                            mediaPlayer = MediaPlayer.create(this, R.raw.greengiraffe);
+                            mediaPlayer.start();
                             colorSelected = green;
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
