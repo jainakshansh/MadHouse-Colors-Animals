@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, "ca-app-pub-9399213409638993~1141748718");
 
         //Referencing all the views from the layout file
         cat = (LinearLayout) findViewById(R.id.cat);
@@ -461,7 +464,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW DOG");
                             outputText.setTextSize(30);
                             break;
@@ -475,7 +478,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE DOG");
                             outputText.setTextSize(30);
                             break;
@@ -489,7 +492,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE DOG");
                             outputText.setTextSize(30);
                             break;
@@ -503,7 +506,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK DOG");
                             outputText.setTextSize(30);
                             break;
@@ -517,7 +520,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN DOG");
                             outputText.setTextSize(30);
                             break;
@@ -621,7 +624,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED LION");
                             outputText.setTextSize(30);
                             break;
@@ -635,7 +638,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW LION");
                             outputText.setTextSize(30);
                             break;
@@ -649,7 +652,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE LION");
                             outputText.setTextSize(30);
                             break;
@@ -663,7 +666,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE LION");
                             outputText.setTextSize(30);
                             break;
@@ -677,7 +680,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK LION");
                             outputText.setTextSize(30);
                             break;
@@ -691,7 +694,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN LION");
                             outputText.setTextSize(30);
                             break;
@@ -795,7 +798,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -809,7 +812,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -823,7 +826,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -837,7 +840,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -851,7 +854,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -865,7 +868,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN CAMEL");
                             outputText.setTextSize(30);
                             break;
@@ -969,7 +972,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -983,7 +986,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -997,7 +1000,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -1011,7 +1014,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -1025,7 +1028,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -1039,7 +1042,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN RABBIT");
                             outputText.setTextSize(30);
                             break;
@@ -1143,7 +1146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.red));
                             outputText.setText("RED GIRAFFE");
                             outputText.setTextSize(30);
                             break;
@@ -1157,7 +1160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.yellow));
                             outputText.setText("YELLOW GIRAFFE");
                             outputText.setTextSize(30);
                             break;
@@ -1171,7 +1174,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.orange));
                             outputText.setText("ORANGE GIRAFFE");
                             outputText.setTextSize(30);
                             break;
@@ -1185,7 +1188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.blue));
                             outputText.setText("BLUE GIRAFFE");
                             outputText.setTextSize(30);
                             break;
@@ -1199,7 +1202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.pink));
                             outputText.setText("PINK GIRAFFE");
                             outputText.setTextSize(30);
                             break;
@@ -1213,7 +1216,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             output.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
                             outputImage.setVisibility(View.VISIBLE);
-                            outputText.setTextColor(ContextCompat.getColor(this, android.R.color.black));
+                            outputText.setTextColor(ContextCompat.getColor(this, R.color.green));
                             outputText.setText("GREEN GIRAFFE");
                             outputText.setTextSize(30);
                             break;
