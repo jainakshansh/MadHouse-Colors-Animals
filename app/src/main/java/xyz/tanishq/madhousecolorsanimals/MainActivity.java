@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Load an ad into the AdMob banner view.
         AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
+                .setRequestAgent("android_studio:ad_template")
+                .tagForChildDirectedTreatment(true)
+                .build();
         adView.loadAd(adRequest);
     }
 
